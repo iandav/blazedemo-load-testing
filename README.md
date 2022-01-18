@@ -13,11 +13,7 @@ The main purpose is to check the stability & response time of the server given a
   <li>500 users test plan</li>
 </ul>
 
-Each JMeter test plan simulates users interacting with the webpage filling a form with dynamic input choices. For that, every test plan contains 5 possible input alternatives to follow and a _Random Order Controller_ is applied to ensure every input alternative will execute at least once in the test.
-
-A _Uniform Random Timer_ is applied to add random delay to the responses, creating a more realistic scenario.
-
-Finally there's a _Duration Assertion_ with the value of 2500ms (milliseconds) = 2,5s (seconds). If responses take more than that time, tests will fail and those will be the main indicative that the server stability is going down when many requests are made.
+Each JMeter test plan simulates users interacting with the webpage filling a form with dynamic input choices. For that, every test plan contains 5 possible input alternatives to follow. Moreover, in every request there's a _Duration Assertion_ with the value of 2500ms (milliseconds) = 2,5s (seconds). If responses take more than that time, tests will fail and those will be the main indicative that the server stability is going down when many requests are made.
 
 ## Execute Tests
 Test plans are in "test cases" folder in .jmx format.
