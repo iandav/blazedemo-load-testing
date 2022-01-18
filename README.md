@@ -27,8 +27,17 @@ Test plans are in "test cases" folder in .jmx format.
   <li>Go to JMeter <i>bin</i> folder and open a terminal there</li>
   <li>Create an empty folder for each test plan</li>
   <li>Execute: <code>./jmeter -n -t test_plan_path.jmx -l any_log_name -e -o empty_folder_path </code></li>
-  <li>View test results: Go to the created empty folder and open the new .html file</li>
+  <li>View Test Results: Go to the recent empty folder and open the new .html file</li>
 </ol>
 
 ## View Test Results directly
 All test results are in "test results" folder, open the .html files to visualize them.
+
+## Test Results in a nutshell
+| Test Plans | Tests Failed |
+| --- | --- |
+| 100 users | 2.31% |
+| 200 users | 5.04% | 
+| 300 users | 9.83% |
+| 400 users | 18.19% |
+| 500 users | 18.38% |
