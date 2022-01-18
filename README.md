@@ -41,3 +41,7 @@ All test results are in "test results" folder, open the .html files to visualize
 | 300 users | 9.83% |
 | 400 users | 18.19% |
 | 500 users | 18.38% |
+
+**100-200 users:** A minimal percentage of responses take more than 1500ms to respond but the range of error is still acceptable.
+
+**300 users**: Some responses take a little bit longer than expected like the previous test plan and
