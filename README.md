@@ -17,7 +17,7 @@ Each JMeter test plan simulates users interacting with the webpage filling a for
 
 A _Uniform Random Timer_ is applied to add random delay to the responses, creating a more realistic scenario.
 
-Finally there's a _Duration Assertion_ with the value of 1500ms (milliseconds) = 1,5s (seconds). If responses take more than that time, tests will fail and those will be the main indicative that the server stability is going down when many requests are made.
+Finally there's a _Duration Assertion_ with the value of 2500ms (milliseconds) = 2,5s (seconds). If responses take more than that time, tests will fail and those will be the main indicative that the server stability is going down when many requests are made.
 
 ## Execute Tests
 Test plans are in "test cases" folder in .jmx format.
