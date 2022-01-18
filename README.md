@@ -30,14 +30,20 @@ Test plans are in "test cases" folder in .jmx format.
 All test results are in "test results" folder, open the .html files to visualize them.
 
 ## Test Results in a nutshell
-| Test Plans | Tests Failed |
-| --- | --- |
-| 100 users | 2.31% |
-| 200 users | 5.04% | 
-| 300 users | 9.83% |
-| 400 users | 18.19% |
-| 500 users | 18.38% |
+| Test Plans | Tests Passed | Tests Failed |
+| --- | --- | --- |
+| 100 users | 100% | 0% |
+| 200 users | 99.75% | 0.25% |
+| 300 users | 100% | 0% |
+| 400 users | 99.94% | 0.06% |
+| 500 users | 99.95% | 0.05% |
 
-**100-200 users:** A minimal percentage of responses take more than 1500ms to respond but the range of error is still acceptable.
+**100 users:** All tests passed without unexpected results, the average response time is 388.50ms (below 2500ms).
 
-**300 users**: Some responses take a little bit longer than expected like the previous test plan and
+**200 users:** 2 responses took 1502ms but is still an acceptable margin of error.
+
+**300 users:** All tests passed, the average response time is 387.26ms (below 2500ms).
+
+**400 users:** 1 response failed by returning 500 status code (Internal Server Error).
+
+**500 users:**
