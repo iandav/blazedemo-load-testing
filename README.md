@@ -49,4 +49,4 @@ All test results are in "test results" folder, open the .html files to visualize
 
 **500 users:** A response took 1629ms but is still an acceptable margin of error.
 
-**1000 users:** Server started to return 429 status code (Too many requests). The problem is that JMeter sends lots of requests with the same IP and server rejects them. After hours thinking, the decission was to make a **Distributed Testing** to send multiple requests from different IPs by avoiding server rejections.
+**1000 users:** Server started to return 429 status code (Too many requests). The problem is that JMeter sends lots of requests with the same IP and server rejects them. The fix was making a **Distributed Testing** to send multiple requests from different IPs.
