@@ -11,6 +11,7 @@ The main purpose is to check the stability & response time of the server given a
   <li>300 users test plan</li>
   <li>400 users test plan</li>
   <li>500 users test plan</li>
+  <li>1000 users test plan</li>
 </ul>
 
 Each JMeter test plan simulates users interacting with the webpage filling a form with dynamic input choices. For that, every test plan contains 5 possible input alternatives to follow. Moreover, in every request there's a _Duration Assertion_ with the value of 2500ms (milliseconds) = 2,5s (seconds). If responses take more than that time, tests will fail and those will be the main indicative that the server stability is going down when many requests are made.
@@ -38,12 +39,12 @@ All test results are in "test results" folder, open the .html files to visualize
 | 400 users | 99.94% | 0.06% |
 | 500 users | 99.95% | 0.05% |
 
-**100 users:** All tests passed without unexpected results, the average response time is 388.50ms (below 2500ms).
+**100 users:** All tests passed, the average response time is 388.50ms (below 2500ms).
 
 **200 users:** 2 responses took 1502ms but is still an acceptable margin of error.
 
 **300 users:** All tests passed, the average response time is 387.26ms (below 2500ms).
 
-**400 users:** 1 response failed by returning 500 status code (Internal Server Error).
+**400 users:** A response failed by returning 500 status code (Internal Server Error).
 
-**500 users:**
+**500 users:** Server started to return 429 status code (Too many requests). The problem is that JMeter sends lots of requests with the same IP and server rejects them. After hours thinking, the decission was to make a **Distributed Testing** to send multiple requests from different IPs by avoiding server rejections.
