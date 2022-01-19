@@ -11,13 +11,10 @@ The main purpose is to check the stability & response time of the server given a
   <li>300 users test plan</li>
   <li>400 users test plan</li>
   <li>500 users test plan</li>
+  <li>1000 users test plan</li>
 </ul>
 
-Each JMeter test plan simulates users interacting with the webpage filling a form with dynamic input choices. For that, every test plan contains 5 possible input alternatives to follow and a _Random Order Controller_ is applied to ensure every input alternative will execute at least once in the test.
-
-A _Uniform Random Timer_ is applied to add random delay to the responses, creating a more realistic scenario.
-
-Finally there's a _Duration Assertion_ with the value of 2500ms (milliseconds) = 2,5s (seconds). If responses take more than that time, tests will fail and those will be the main indicative that the server stability is going down when many requests are made.
+Each JMeter test plan simulates users interacting with the webpage filling a form with dynamic input choices. For that, every test plan contains 5 possible input alternatives to follow. Moreover, in every request there's a _Duration Assertion_ with the value of 1500ms (milliseconds) = 1,5s (seconds). If responses take more than that time, tests will fail and those will be the main indicative that the server stability is going down when many requests are made.
 
 ## Execute Tests
 Test plans are in "test cases" folder in .jmx format.
@@ -34,14 +31,22 @@ Test plans are in "test cases" folder in .jmx format.
 All test results are in "test results" folder, open the .html files to visualize them.
 
 ## Test Results in a nutshell
-| Test Plans | Tests Failed |
-| --- | --- |
-| 100 users | 2.31% |
-| 200 users | 5.04% | 
-| 300 users | 9.83% |
-| 400 users | 18.19% |
-| 500 users | 18.38% |
+| Test Plans | Tests Passed | Tests Failed |
+| --- | --- | --- |
+| 100 users | 100% | 0% |
+| 200 users | 99.75% | 0.25% |
+| 300 users | 100% | 0% |
+| 400 users | 99.94% | 0.06% |
+| 500 users | 99.95% | 0.05% |
 
-**100-200 users:** A minimal percentage of responses take more than 1500ms to respond but the range of error is still acceptable.
+**100 users:** All tests passed, the average response time is 388.50ms (below 1500ms).
 
-**300 users**: Some responses take a little bit longer than expected like the previous test plan and
+**200 users:** 2 responses took 1502ms but is still an acceptable margin of error.
+
+**300 users:** All tests passed, the average response time is 387.26ms (below 1500ms).
+
+**400 users:** A response failed by returning 500 status code (Internal Server Error).
+
+**500 users:** A response took 1629ms but is still an acceptable margin of error.
+
+**1000 users:** Server started to return 429 status code (Too many requests). The problem is that JMeter sends lots of requests with the same IP and server rejects them. The fix was making a **Distributed Testing** to send multiple requests from different IPs.
