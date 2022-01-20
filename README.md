@@ -8,6 +8,7 @@
   <li><a href="#view-test-results">View Test Results</a></li>
   <li><a href="#test-results">Test Results</a></li>
   <li><a href="#distributed-testing">Distributed Testing</a></li>
+</ul>
 
 ## Introduction
 Basic Performance Testing project to verify the stability of a fictional travel agency website called [BlazeDemo](https://blazedemo.com) using JMeter.
@@ -22,7 +23,8 @@ The main purpose is to check the stability & response time of the server given a
   <li>500 users test plan</li>
   <li>1000 users test plan</li>
 </ul>
-<br />
+  
+  
 Each JMeter test plan simulates users interacting with the webpage filling a form with dynamic input choices. For that, every test plan contains 5 possible input alternatives to follow. Moreover, in every request there's a _Duration Assertion_ with the value of 1500ms (milliseconds) = 1,5s (seconds). If responses take more than that time, tests will fail and those will be the main indicative that the server stability is going down when many requests are made.
 
 ## Execute Tests
@@ -63,15 +65,17 @@ All test results are in "test results" folder, open the .html files to visualize
 
 ## Distributed Testing
 Distributed testing is used to perform load or stress tests with too many requests using multiple systems. JMeter uses the following concepts:
+  
+<img src="https://www.guru99.com/images/MasterJMeter.png" width=40% height=40% />
 
 ### Terminology
 - **Controller Node / Master:** the system running JMeter GUI, which controls the test
 - **Worker Nodes / Slaves:** the systems running jmeter-server, which takes commands from the GUI and send requests to the target system(s)
 - **Target:** the webserver to test.
-<br />
-<img src="https://www.guru99.com/images/MasterJMeter.png" width=40% height=40%>
-<br />
+  
+  
 In this case, the Controller Node is the local computer and the Slaves are a virtual machine and the local computer (The ideal scenario would be 2 virtual machines but the present testing environment has low resources). Now the 1000 users are distributed: 500 users in the virtual machine + 500 users in the local computer.
-<br />
+  
+  
 🔴 **1000 users (Final Result):** 1.35% of failed requests are excluded due to low resource problems. Finally, 8.58% of requests took more than the expected response time. The graphs indicate that the webserver could afford 1000 users but with a slight increase in response times.
 
