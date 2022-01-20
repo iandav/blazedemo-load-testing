@@ -72,8 +72,7 @@ Distributed testing is used to perform load or stress tests with too many reques
 - **Controller Node / Master:** the system running JMeter GUI, which controls the test
 - **Worker Nodes / Slaves:** the systems running jmeter-server, which takes commands from the GUI and send requests to the target system(s)
 - **Target:** the webserver to test.
-  
-  
+##
 In this case, the Controller Node is the local computer and the Slaves are a virtual machine and the local computer (The ideal scenario would be 2 virtual machines but the present testing environment has low resources). Now the 1000 users are distributed: 500 users in the virtual machine + 500 users in the local computer.
   
   
