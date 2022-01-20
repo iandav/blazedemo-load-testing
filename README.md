@@ -1,5 +1,7 @@
 # blazedemo-load-testing
 
+# Overview
+
 ## Introduction
 Basic Performance Testing project to verify the stability of a fictional travel agency website called [BlazeDemo](https://blazedemo.com) using JMeter.
 
@@ -27,10 +29,10 @@ Test plans are in "test cases" folder in .jmx format.
   <li>View Test Results: Go to the recent empty folder and open the new .html file</li>
 </ol>
 
-## View Test Results directly
+## View Test Results
 All test results are in "test results" folder, open the .html files to visualize them.
 
-## Test Results in a nutshell
+## Test Results
 | Test Plans | Tests Passed | Tests Failed |
 | --- | --- | --- |
 | 100 users | 100% | 0% |
@@ -38,15 +40,28 @@ All test results are in "test results" folder, open the .html files to visualize
 | 300 users | 100% | 0% |
 | 400 users | 99.94% | 0.06% |
 | 500 users | 99.95% | 0.05% |
+| 1000 users | 90.08% | 9.93% |
 
-**100 users:** All tests passed, the average response time is 388.50ms (below 1500ms).
+🟢 **100 users:** All tests passed, the average response time is 388.50ms (below 1500ms).
 
-**200 users:** 2 responses took 1502ms but is still an acceptable margin of error.
+🟠 **200 users:** Two responses took 1502ms but is still an acceptable margin of error.
 
-**300 users:** All tests passed, the average response time is 387.26ms (below 1500ms).
+🟢 **300 users:** All tests passed, the average response time is 387.26ms (below 1500ms).
 
-**400 users:** A response failed by returning 500 status code (Internal Server Error).
+🟠 **400 users:** A response failed by returning 500 status code (Internal Server Error).
 
-**500 users:** A response took 1629ms but is still an acceptable margin of error.
+🟠 **500 users:** A response took 1629ms but is still an acceptable margin of error.
 
-**1000 users:** Server started to return 429 status code (Too many requests). The problem is that JMeter sends lots of requests with the same IP and server rejects them. The fix was making a **Distributed Testing** to send multiple requests from different IPs.
+🔴 **1000 users:** Server started to return 429 status code (Too many requests). The problem is that JMeter sends lots of requests with the same IP and server rejects them. The fix was making a **Distributed Testing** to send multiple requests from different IPs.
+
+## Distributed Testing
+Distributed testing is used to perform load or stress tests with too many requests using multiple systems. JMeter uses the following concepts:
+
+<img src="https://www.guru99.com/images/MasterJMeter.png" width=40% height=40%>
+
+### Terminology
+- **Controller Node / Master:** the system running JMeter GUI, which controls the test
+- **Worker Nodes / Slaves:** the systems running jmeter-server, which takes commands from the GUI and send requests to the target system(s)
+- **Target:** the webserver to test.
+
+In this case, the Controller Node is the local computer and the Slaves are a virtual machine and the local computer (The ideal scenario would be 2 virtual machines but the present testing environment has low resources). Now the test plan contains 500 user interactions because
