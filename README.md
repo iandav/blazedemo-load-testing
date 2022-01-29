@@ -11,7 +11,7 @@
 </ul>
 
 ## Introduction
-Basic Performance Testing project to verify the stability of a fictional travel agency website called [BlazeDemo](https://blazedemo.com) using JMeter.
+Performance Testing project to verify the stability of a fictional travel agency website called [BlazeDemo](https://blazedemo.com) using JMeter.
 
 ## Test Strategy
 The main purpose is to check the stability and response time of the server given an amount of requests, so I divided various JMeter test plans to execute them in ascendent order of user interactions:
@@ -76,4 +76,4 @@ Distributed testing is used to perform load or stress tests with too many reques
 In this case, the Controller Node is the local computer and the Slaves are a virtual machine and the local computer (The ideal scenario would be 2 virtual machines but the present testing environment has low resources). Now the 1000 users are distributed: 500 users in the virtual machine + 500 users in the local computer.
   
   
-🔴 **1000 users (Final Result):** 1.35% of failed requests are excluded due to low resource problems. Finally, 8.58% of requests took more than the expected response time. The graphs indicate that the webserver could afford 1000 users but with a slight increase in response times.
+🔴 **1000 users (Final Result):** 1.35% of failed requests are excluded due to low resource problems. Finally, 8.58% of responses took more than the expected response time. The graphs indicate that the webserver could afford 1000 users but with a slight increase in response times.
